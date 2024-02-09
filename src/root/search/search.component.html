@@ -1,0 +1,23 @@
+<div *ngIf="page === 'search'">
+  <h1>Search by title and author</h1>
+  <input
+    #searchQuery
+    type="text"
+    id="search"
+    (keyup)="search(searchQuery.value)"
+  /><br />
+  <div>{{ occ }} occurrencies</div>
+  <button (click)="goTo('home')">Exit</button>
+</div>
+
+<div *ngIf="page === 'home'">
+  <button (click)="goTo('search')">Search</button>
+</div>
+<div>
+  <app-search-response
+    [foundBook]="foundBook"
+    [page]="page"
+    (pageChange)="goTo($event)"
+  >
+  </app-search-response>
+</div>

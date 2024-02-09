@@ -1,0 +1,27 @@
+<div *ngIf="page === 'document'">
+  <h1>Document description</h1>
+  <div>Position: {{ foundBook.id }}</div>
+  <div>Author: {{ foundBook.author }}</div>
+  <div>Title: {{ foundBook.title }}</div>
+  <div *ngIf="foundBook.user !== ''">User: {{ foundBook.user }}</div>
+  <app-delete
+    *ngIf="foundBook.user === ''"
+    [foundBook]="foundBook"
+    [page]="page"
+    (pageChange)="goTo($event)"
+  ></app-delete>
+  <app-loan
+    *ngIf="foundBook.user === ''"
+    [foundBook]="foundBook"
+    [page]="page"
+    (pageChange)="goTo($event)"
+  ></app-loan>
+  <app-return
+    *ngIf="foundBook.user !== ''"
+    [foundBook]="foundBook"
+    [page]="page"
+    (pageChange)="goTo($event)"
+  ></app-return>
+  <br />
+  <button (click)="goTo('search')">Exit</button>
+</div>

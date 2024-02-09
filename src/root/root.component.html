@@ -1,0 +1,5 @@
+<div *ngIf="page === 'home'">
+  <h1>Biblioteca</h1>
+</div>
+<app-search [page]="page" (pageChange)="goTo($event)"></app-search>
+<app-insert [page]="page" (pageChange)="goTo($event)"></app-insert>

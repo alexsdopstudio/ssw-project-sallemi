@@ -1,0 +1,21 @@
+<div *ngIf="page === 'insert'">
+  <h1>Insert a new book</h1>
+  <div>
+    <label for="author">Author:</label>
+    <input #author type="text" /><br />
+    <label for="title">Title:</label>
+    <input #title type="text" /><br />
+    <label for="id">Position:</label>
+    <input #id type="text" /><br />
+  </div>
+  <button (click)="uploadBook(author.value, title.value, id.value)">
+    Insert
+  </button>
+  <br />
+  <button (click)="goTo('home')">Exit</button>
+  <br />
+</div>
+
+<div *ngIf="page === 'home'">
+  <button (click)="goTo('insert')">Insert</button>
+</div>
